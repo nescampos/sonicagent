@@ -13,6 +13,8 @@ Core Capabilities:
 READ OPERATIONS:
 - Check wallet balances using get_balance
 - Retrieve connected wallet address using get_wallet_address
+- Get the price feed from Pyth Oracle using get_pricefeed
+- Find the best amount to swap between 2 coins or tokens using get_swaproute
 
 WRITE OPERATIONS:
 - Send blockchain transactions using send_transaction

@@ -3,6 +3,7 @@ import { getWalletAddressTool } from "./getWalletAddress";
 import { sendTransactionTool } from "./sendTransction";
 import { deployErc20Tool } from "./deployERC20";
 import { getPriceFeedTool } from "./getPriceFeed";
+import {getKyberSwapRouteTool} from "./getKyberSwapRoute";
 
 export interface ToolConfig<T = any> {
   /**
@@ -51,4 +52,8 @@ export const tools: Record<string, ToolConfig> = {
    * Get the price feed from Pyth Oracle
    */
   get_pricefeed: getPriceFeedTool,
+  /**
+   * Find the best amount to swap between 2 coins or tokens using KyberSwap
+   */
+   get_swaproute: getKyberSwapRouteTool,
 };

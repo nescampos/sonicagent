@@ -1,7 +1,4 @@
-import { createViemPublicClient } from "../src/viem/createViemPublicClient.js";
 import type { ToolConfig } from "./allTools.js";
-import { formatEther } from "viem";
-import type { Address } from "viem";
 import { ethers } from 'ethers';
 import PythAbi from '@pythnetwork/pyth-sdk-solidity/abis/IPyth.json' assert { type: 'json' };
 import {PRICE_FEED_DICT, PYTH_SONIC_ADDRESS} from '../src/constants/priceFeeds';

@@ -61,3 +61,21 @@ export interface SendTransactionArgs {
    */
   pair: string;
 }
+
+/**
+ * Arguments for the get_swaproute tool
+ */
+ export interface GetKyberSwapRouteArgs {
+  /**
+   * The token to use for the swap
+   */
+   token_from: string;
+   /**
+   * The amount to swap
+   */
+    amount: string;
+   /**
+   * The token to receive after the swap
+   */
+   token_to: string;
+}
