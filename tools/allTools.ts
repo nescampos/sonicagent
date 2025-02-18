@@ -4,6 +4,7 @@ import { sendTransactionTool } from "./sendTransction";
 import { deployErc20Tool } from "./deployERC20";
 import { getPriceFeedTool } from "./getPriceFeed";
 import {getKyberSwapRouteTool} from "./getKyberSwapRoute";
+import {executeSwapTool} from "./executeSwap";
 
 export interface ToolConfig<T = any> {
   /**
@@ -56,4 +57,8 @@ export const tools: Record<string, ToolConfig> = {
    * Find the best amount to swap between 2 coins or tokens using KyberSwap
    */
    get_swaproute: getKyberSwapRouteTool,
+  /**
+   * Execute a swap between 2 coins or tokens
+   */
+   execute_swap: executeSwapTool,
 };
