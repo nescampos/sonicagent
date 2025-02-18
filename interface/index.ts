@@ -108,3 +108,17 @@ export interface SendTransactionArgs {
 }
 
 export interface GetSupportedPairsArgs {}
+
+/**
+ * Arguments for the cancel_limitorder tool
+ */
+ export interface CancelLimitOrderArgs {
+  /**
+   * The token to use for the swap
+   */
+   token_from: string;
+   /**
+   * The token to receive after the swap
+   */
+   token_to: string;
+}

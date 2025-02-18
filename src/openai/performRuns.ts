@@ -44,7 +44,7 @@ export async function performRun(run: Run, client: OpenAI, thread: Thread) {
     (message) => message.role === "assistant"
   );
 
-  console.log(`🚀 Assistant message: ${assistantMessage?.content[0]}`);
+  //console.log(`🚀 Assistant message: ${assistantMessage?.content[0]}`);
 
   // Return the assistant message, or a default message if none was found
   return (

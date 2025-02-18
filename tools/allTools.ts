@@ -7,6 +7,9 @@ import {getKyberSwapRouteTool} from "./getKyberSwapRoute";
 import {executeSwapTool} from "./executeSwap";
 import {createLimitOrderTool} from "./createLimitOrder";
 import {getSupportedPairsTool} from "./getSupportedPairs";
+import {getAvailablePriceFeedsTool} from "./getAvailablePriceFeeds";
+import {getAvailableTokensForSwapTool} from "./getAvailableTokensForSwap";
+import {cancelLimitOrderTool} from "./cancelLimitOrder";
 
 export interface ToolConfig<T = any> {
   /**
@@ -63,6 +66,19 @@ export const tools: Record<string, ToolConfig> = {
    * Execute a swap between 2 coins or tokens
    */
    execute_swap: executeSwapTool,
+  /**
+   * Get the available price feeds in Pyth protocol.
+   */
+   get_availablepricefeeds: getAvailablePriceFeedsTool,
+  /**
+   * Get the available tokens to swap in KyberSwap.
+   */
+   get_availabletokensforswap: getAvailableTokensForSwapTool,
+  
+   /**
+   * Get the available tokens to swap in KyberSwap.
+   */
+    // cancel_limitorder: cancelLimitOrderTool,
   //  /**
   //  * Create a limit order
   //  */

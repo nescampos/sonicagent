@@ -14,7 +14,10 @@ READ OPERATIONS:
 - Check wallet balances using get_balance
 - Retrieve connected wallet address using get_wallet_address
 - Get the price feed from Pyth Oracle using get_pricefeed
+- Get all the available price feeds from Pyth using get_availablepricefeeds
+- Get all the available tokens for swapping in KyberSwap using get_availabletokensforswap
 - Find the best amount to swap between 2 coins or tokens using get_swaproute
+
 
 WRITE OPERATIONS:
 - Send blockchain transactions using send_transaction

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LIMIT_ORDER_DOMAIN, TOKENS_DICT} from "../constants/kyberSwap";
+import { LIMIT_ORDER_DOMAIN, CHAIN_ID, TOKENS_DICT} from "../constants/kyberSwap";
 import { getSigner } from "./signer";
 import { EIP712TypedData } from "./EIP712";
 
@@ -28,7 +28,7 @@ export async function postCreateOrderUnsigned(token_from, amount_from, token_to,
 
     // Structure the request to be sent in POST body
     const requestBody: CreateOrderUnsignedBody = {
-        chainId: "57054",
+        chainId: CHAIN_ID,
         makerAsset: firstToken.address, 
         takerAsset: secondToken.address, 
         maker: signerAddress,

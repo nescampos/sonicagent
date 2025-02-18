@@ -5,9 +5,14 @@ import { CreateOrderUnsignedBody, postCreateOrderUnsigned } from "./postCreateOr
 import { getContracts } from "./getContracts";
 import { getTokenApproval } from "./approval";
 import { getMakerActiveAmount } from "./getMakerActiveAmount";
+import { postCancelOrderUnsigned, CancelOrderUnsignedBody } from "./postCancelOrderUnsigned";
 
 interface CreateOrderSignedBody extends CreateOrderUnsignedBody {
     salt: string,
+    signature: string
+};
+
+interface CancelOrderSignedBody extends CancelOrderUnsignedBody {
     signature: string
 };
 
@@ -98,5 +103,51 @@ export async function getSupportedPairs() {
 
     } catch (error) {
         throw(error);
+    };
+};
+
+export async function postCancelOrder(token_from:string, token_to:string) {
+    const targetPath = `/write/api/v1/orders/cancel`;
+
+    // Get the Maker signer instance to sign cancellation off-chain
+    const signer = getSigner();
+
+    // Get the request body and EIP712 unsigned message
+    const orderrequest = await postCancelOrderUnsigned(token_from, token_to);
+    const unsignedOrderReqBody = orderrequest.requestBody;
+    const unsignedOrderReturnData = orderrequest.returnedData;
+
+    // Sign the EIP712 cancellation order
+    const signature = await signer.signTypedData(
+        unsignedOrderReturnData.domain,
+        { CancelOrder: unsignedOrderReturnData.types.CancelOrder },
+        unsignedOrderReturnData.message
+    );
+
+    // Structure the request body to accompany the POST request
+    const requestBody: CancelOrderSignedBody = {
+        ...unsignedOrderReqBody,
+        signature: signature
+    };
+    
+    try {
+        console.log(`\nPosting the cancellation order...`);
+        const {data} = await axios.post(
+            LIMIT_ORDER_DOMAIN+targetPath,
+            requestBody,
+            {headers: {Origin: 'https://kyberswap.com'}}
+        );
+
+        console.log(`KyberSwap server response:`);
+        return {
+            message:"success",
+            success:true
+        }
+
+    } catch (error) {
+        return {
+            message:error,
+            success:false
+        }
     };
 };
