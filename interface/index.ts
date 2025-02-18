@@ -79,3 +79,32 @@ export interface SendTransactionArgs {
    */
    token_to: string;
 }
+
+
+/**
+ * Arguments for the create_limitorder tool
+ */
+ export interface CreateLimitOrderArgs {
+  /**
+   * The token to use for the swap
+   */
+   token_from: string;
+   /**
+   * The amount to swap
+   */
+    amount_from: string;
+   /**
+   * The token to receive after the swap
+   */
+   token_to: string;
+   /**
+   * The amount to receive
+   */
+    amount_to: string;
+    /**
+   * The minutes of expiration
+   */
+     expiration: string;
+}
+
+export interface GetSupportedPairsArgs {}

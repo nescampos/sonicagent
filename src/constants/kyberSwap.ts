@@ -1,4 +1,6 @@
 export const AGGREGATOR_DOMAIN = `https://aggregator-api.kyberswap.com`;
+export const LIMIT_ORDER_DOMAIN = `https://limit-order.kyberswap.com`;
+export const CHAIN_ID = `57054`;
 
 interface Token {
     address: string,
