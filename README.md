@@ -1,8 +1,8 @@
-# Sonic Agent
+# SAgent
 
 ## Description
 
-**Sonic Agent** is a powerful tool designed to interact with Sonic network. It leverages OpenAI's GPT-4o-mini model to provide a conversational interface for users to perform various blockchain operations, such as checking wallet balances, sending transactions, and deploying smart contracts. The assistant embodies the persona of Darth Vader, delivering responses with a commanding and cryptic tone.
+**SAgent** is a powerful tool designed to interact with Sonic network. It leverages OpenAI's GPT-4o-mini model to provide a conversational interface for users to perform various blockchain operations, such as checking wallet balances, sending transactions, and deploying smart contracts. The assistant embodies the persona of Darth Vader, delivering responses with a commanding and cryptic tone.
 
 ## Features
 
@@ -10,6 +10,7 @@
 - **Wallet Operations**: Check wallet balances and retrieve connected wallet addresses.
 - **Transaction Management**: Send transactions with customizable parameters.
 - **Smart Contract Interaction**: Deploy ERC20 tokens and interact with existing contracts.
+- **API interaction**: Ask price feeds from [Pyth network](https://www.pyth.network/) and pairs to swap in KyberSwap. Also, make swaps in Kyber.
 - **Error Handling**: Robust error handling and feedback for failed operations.
 
 ## Getting Started
@@ -60,6 +61,11 @@ The assistant has access to various tools for performing blockchain operations:
 #### Read Operations
 - **get_balance**: Check wallet balances on the Sonic network
 - **get_wallet_address**: Retrieve the connected wallet's address
+- **get_availablepricefeeds**: Retrieve the price feeds available in [Pyth](https://www.pyth.network/).
+- **get_pricefeed**: Retrieve the information for a specific price feed in [Pyth](https://www.pyth.network/).
+- **get_swaproute**: Get the best amount to swap using [KyberSwap](https://kyberswap.com/swap/sonic).
+- **get_availabletokensforswap**: Get the available tokens to swap in Sonic with [KyberSwap](https://kyberswap.com/swap/sonic).
+
 
 #### Write Operations
 - **send_transaction**: Send transactions with customizable parameters including:
@@ -73,6 +79,7 @@ The assistant has access to various tools for performing blockchain operations:
   - Customizable token name and symbol
   - Configurable initial supply
   - Standard ERC20 functionality
+- **execute_swap**: Execute a swap in [KyberSwap](https://kyberswap.com/swap/sonic), specifying the tokens (from and to), and the amount to swap. 
 
 ## Codebase Flow
 
