@@ -1,8 +1,8 @@
 import { defineChain } from 'viem'
 
 export const sonicBlazeTestnet = defineChain({
-    id: 57054,
-    name: 'Sonic Testnet',
+    id: 146,
+    name: 'Sonic',
     nativeCurrency: {
       decimals: 18,
       name: 'Sonic',
@@ -10,11 +10,11 @@ export const sonicBlazeTestnet = defineChain({
     },
     rpcUrls: {
       default: {
-        http: ['https://rpc.blaze.soniclabs.com'],
-        webSocket: ['wss://sonic-blaze-rpc.publicnode.com'],
+        http: ['https://rpc.soniclabs.com'],
+        webSocket: ['wss://sonic-rpc.publicnode.com'],
       },
     },
     blockExplorers: {
-      default: { name: 'Explorer', url: 'https://testnet.soniclabs.com/' },
+      default: { name: 'Explorer', url: 'https://sonicscan.org/' },
     },
   })

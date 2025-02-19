@@ -1,13 +1,12 @@
 import { ethers } from "ethers";
-import { sonicBlazeTestnet} from "../viem/configureSonicChain";
 
 
 function getProvider(): ethers.Provider {    
     // Replace this with a RPC of your choice
-    const providerUrl = "https://rpc.blaze.soniclabs.com";
+    const providerUrl = "https://rpc.soniclabs.com";
     const providerOptions = {
-        chainId: 57054,
-        name: 'Sonic Testnet'
+        chainId: 146,
+        name: 'Sonic'
     }
     return new ethers.JsonRpcProvider(providerUrl, providerOptions);
 }
